@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 
-const MainLayout = () => import('@/features/layouts/MainLayout.vue')
-const DashboardView = () => import('@/features/views/DashboardView.vue')
-const JobListView = () => import('@/features/views/JobListView.vue')
+const MainLayout = () => import('@/Features/layout/MainLayout.vue')
+const DashboardView = () => import('@/Features/dashboard/DashboardView.vue')
+const JobListView = () => import('@/Features/jobs/JobListView.vue')
 
 const routes = [
     {
