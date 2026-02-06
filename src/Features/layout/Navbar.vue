@@ -51,7 +51,7 @@ const mainMargin = computed(() => {
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h1 class="font-bold text-2xl ml-7">Dashboard</h1>
+      <h1 class="font-bold text-2xl ml-7 animate__animated animate__fadeInDown">Dashboard</h1>
     </div>
 
     <div class="flex items-center w-1/3 relative right-24">

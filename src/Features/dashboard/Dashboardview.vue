@@ -36,7 +36,7 @@ const start = ref(true);
 
     
 
-<main class="bg-linear-to-br from-purple-900 via-purple-700 to-indigo-800 min-h-screen flex items-center justify-center">
+<main class="bg-linear-to-br from-[#4B2AAD] via-purple-700 to-indigo-800 min-h-screen flex items-center justify-center">
   
   <div class="text-center px-4">
     
