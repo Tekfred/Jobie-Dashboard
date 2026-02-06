@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import './style.css'
 import App from './App.vue'
 import router from './router'
+import '@fontsource/inter'
 import 'hamburgers/dist/hamburgers.css'
 
 
