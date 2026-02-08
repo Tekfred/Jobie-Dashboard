@@ -16,7 +16,7 @@ const mainMargin = computed(() => {
 <template>
   <div class="flex-1 flex flex-col transition-all duration-300" 
       :class="mainMargin">
-    <section class="bg-[#f1f1f1] bg-auto">
+    <section class="bg-[#f1f1f1] px-6">
       <Navbar />
     </section>
 

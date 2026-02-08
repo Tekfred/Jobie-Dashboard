@@ -22,6 +22,10 @@ const currentPageName = computed(() => {
   const current = menuItems.find((item) => item.path === route.path);
   return current ? current.name : "Dashboard";
 });
+
+const sideMargin = computed(() => {
+  return uiStore.isSidebarOpen ? 'ml-05' : 'ml-25';
+})
 </script>
 
 <template>
@@ -29,6 +33,15 @@ const currentPageName = computed(() => {
      class="fixed left-0 top-0 h-screen bg-[#4B2AAD] px-6 py-8 text-white shadow-2xl z-20 transition-all duration-300"
     :class="uiStore.isSidebarOpen ? 'w-65' : 'w-20'"
   >
+
+  
+
+
+   <div class="absolute -top-14 left-56 w-20 h-20 bg-[#4B2AAD] -right-3 " :class= 'sideMargin'>
+      <div
+        class="absolute -bottom-8 -right-5 w-16 h-14 bg-gray-100 rounded-full"
+      ></div>
+    </div>
     <!-- Logo  hide text when collapsed-->
     <div class="flex items-center gap-3 mb-12 px-2 overflow-hidden">
       <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0">

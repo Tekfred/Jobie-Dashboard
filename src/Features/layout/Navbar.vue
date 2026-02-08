@@ -29,17 +29,10 @@ const toggle = () => {
 };
 
 
-const mainMargin = computed(() => {
-  return uiStore.isSidebarOpen ? 'ml-0.1' : 'ml-20';
-})
 </script>
 <template>
-  <nav class="flex items-center justify-between border-b border-gray-100">
-    <div class="absolute -top-14 left-56 w-20 h-20 bg-[#4B2AAD] -right-3 " :class= 'mainMargin'>
-      <div
-        class="absolute -bottom-8 -right-5 w-16 h-14 bg-gray-100 rounded-full"
-      ></div>
-    </div>
+  <nav class="flex items-center justify-between border-b border-gray-100 ">
+   
     <div class="flex items-center relative right-55">
       <button
         class="hamburger--vortex ml-20 mr-4 scale-65"
@@ -51,7 +44,7 @@ const mainMargin = computed(() => {
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h1 class="font-bold text-2xl ml-7 animate__animated animate__fadeInDown">Dashboard</h1>
+      <h1 class="font-bold text-2xl ">Dashboard</h1>
     </div>
 
     <div class="flex items-center w-1/3 relative right-24">
