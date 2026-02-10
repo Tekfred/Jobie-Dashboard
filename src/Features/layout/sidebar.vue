@@ -80,7 +80,7 @@ const sideMargin = computed(() => {
           class="flex items-center gap-4 px-4 py-3 rounded-l-[20px] transition-all duration-300 group relative"
           :class="
             isActive
-              ? 'bg-[#f1f1f1] text-[#4B2AAD] shadow-lg -mr-6 overflow-hidden'
+              ? 'bg-[#e2e2e4] text-[#4B2AAD] -mr-8 overflow-hidden'
               : 'text-white/70 hover:text-white hover:bg-white/10 -mr-6'
           "
         >
@@ -109,7 +109,8 @@ const sideMargin = computed(() => {
 
     <!-- Footer -->
     <div
-      class="absolute bottom-10 left-8 text-[10px] text-white/40 tracking-wider "
+      class="absolute bottom-10 left-8 text-[10px] text-white/40 tracking-wider"
+      
     >
       <p class="font-semibold ">Jobie Job Portal Admin Dashboard</p>
       <p class="mt-1 ">© 2020 All Rights Reserved</p>

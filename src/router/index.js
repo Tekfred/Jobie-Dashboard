@@ -19,7 +19,7 @@ const routes = [
         path: 'jobs', // (localhost:5173/jobs)
         name: 'job-search',
         component:JobListView
-      }
+      }, 
     ]
   }
 ]

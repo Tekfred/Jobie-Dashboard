@@ -14,7 +14,7 @@ const mainMargin = computed(() => {
 </script>
 
 <template>
-  <div class="flex-1 flex flex-col transition-all duration-300" 
+  <div class=" flex flex-col w-auto transition-all duration-300" 
       :class="mainMargin">
     <section class="bg-[#f1f1f1] px-6">
       <Navbar />
@@ -24,8 +24,8 @@ const mainMargin = computed(() => {
       <sidebar />
     </section>
 
-    <main class="bg-[#f1f1f1] w-full h-full flex-1 p-6 overflow-y-auto">
-      <h1 class="text-xs text-gray-400">Content Area Start Here:</h1>
+    <main>
+      <h1 class="w-full flex-1 px-20 py-6 overflow-y-auto text-gray-400"></h1>
       <router-view />
     </main>
   </div>
