@@ -24,8 +24,13 @@ const currentPageName = computed(() => {
 });
 
 const sideMargin = computed(() => {
-  return uiStore.isSidebarOpen ? 'ml-05' : 'ml-25';
+  return uiStore.isSidebarOpen ? 'overflow-hidden' : '';
 })
+
+const sideinfo = computed(() => {
+  return uiStore.isSidebarOpen ? 'opacity-100' : 'opacity-0';
+})
+
 </script>
 
 <template>
@@ -43,8 +48,8 @@ const sideMargin = computed(() => {
       ></div>
     </div>
     <!-- Logo  hide text when collapsed-->
-    <div class="flex items-center gap-3 mb-12 px-2 overflow-hidden">
-      <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+    <div class="flex items-center gap-3 mb-12 px-2 overflow-hidden" :class="uiStore.isSidebarOpen ? '' : 'pr-15 relative right-4' ">
+      <div class="w-15 h-15 rounded-xl flex items-center justify-center shrink-0">
         <img :src="logo" alt="logo" />
       </div>
 
@@ -110,7 +115,7 @@ const sideMargin = computed(() => {
     <!-- Footer -->
     <div
       class="absolute bottom-10 left-8 text-[10px] text-white/40 tracking-wider"
-      
+     :class="sideinfo" 
     >
       <p class="font-semibold ">Jobie Job Portal Admin Dashboard</p>
       <p class="mt-1 ">© 2020 All Rights Reserved</p>
