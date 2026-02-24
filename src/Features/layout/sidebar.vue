@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import { useUiStore } from "../../stores/uiStore";
 import logo from "@/assets/images/02_Dashboard.png";
@@ -23,7 +23,7 @@ const currentPageName = computed(() => {
 });
 
 const sideMargin = computed(() => {
-  return uiStore.isSidebarOpen ? "overflow-hidden" : "";
+  return uiStore.isSidebarOpen ? "overflow-hidden opacity-100" : "opacity-0";
 });
 
 const sideinfo = computed(() => {
@@ -54,6 +54,8 @@ const sideinfo = computed(() => {
       >
         <img :src="logo" alt="logo" />
       </div>
+
+      
 
       <!-- 
         👇 The text fades out when sidebar closes

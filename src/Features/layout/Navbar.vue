@@ -44,7 +44,7 @@ const toggle = () => {
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h1 class="font-bold text-2xl ">Dashboard</h1>
+      <h1 class="font-bold text-2xl ">{{currentPageName}}</h1>
     </div>
 
     <div class="flex items-center w-1/3 relative right-24">

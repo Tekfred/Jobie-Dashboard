@@ -2,7 +2,7 @@
 import { ref, computed } from "vue";
 import Navbar from "./Navbar.vue";
 import sidebar from "./sidebar.vue";
-import { useRoute } from "vue-router";
+// import { useRoute } from "vue-router";
 import { useUiStore } from "../../stores/uiStore";
 
 
