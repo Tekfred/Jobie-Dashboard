@@ -1,17 +1,31 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Freddy from "@/assets/images/profile_img_1.png";
-import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useUiStore } from "../../stores/uiStore";
 
 const route = useRoute();
 const uiStore = useUiStore();
 
-const isActive = ref(false); // Hamburger menu
+const isActive = ref(false);
 const isBellOpen = ref(false);
 const isMsgOpen = ref(false);
 const notification = ref(18);
+
+// Menu items mirrored from sidebar to resolve the current page name
+const menuItems = [
+  { name: "Dashboard", path: "/home" },
+  { name: "Search Job", path: "/search" },
+  { name: "Applications", path: "/applications" },
+  { name: "Message", path: "/messages" },
+  { name: "Statistics", path: "/statistics" },
+  { name: "News", path: "/news" },
+];
+
+const currentPageName = computed(() => {
+  const current = menuItems.find((item) => item.path === route.path);
+  return current ? current.name : "Dashboard";
+});
 
 // Toggle logic that closes one if the other is opened
 const toggleBell = () => {
@@ -23,19 +37,20 @@ const toggleMsg = () => {
   isMsgOpen.value = !isMsgOpen.value;
   isBellOpen.value = false;
 };
+
 const toggle = () => {
   isActive.value = !isActive.value;
   uiStore.toggleSidebar();
 };
-
-
 </script>
 <template>
-  <nav class="flex items-center justify-between border-b border-gray-100 ">
-   
-    <div class="flex items-center relative right-55">
+  <nav
+    class="flex items-center justify-between border-b border-gray-100 w-full "
+  >
+    <!-- Left: hamburger + page title -->
+    <div class="flex items-center relative left-10 transition-all duration-300">
       <button
-        class="hamburger--vortex ml-20 mr-4 scale-65"
+        class="hamburger--vortex mr-4 scale-65"
         :class="{ 'is-active': isActive }"
         @click="toggle"
         aria-label="Menu"
@@ -44,14 +59,16 @@ const toggle = () => {
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h1 class="font-bold text-2xl ">{{currentPageName}}</h1>
+      <h1 class="font-poppins text-2xl font-bold text-gray-800 relative">
+        {{ currentPageName }}
+      </h1>
     </div>
 
-    <div class="flex items-center w-1/3 relative right-24">
+    <div class="flex items-center w-1/3 relative">
       <input
         type="text"
         placeholder="Search for something..."
-        class="px-50 bg-[#e0e1e6] relative right-8 border-none rounded-3xl py-3 pl-13 focus:ring-2 focus:ring-purple-500 transition-all text-sm"
+        class="px-48 bg-[#e0e1e6] border-none rounded-3xl py-3 focus:ring-2 focus:ring-purple-500 transition-all text-sm"
       />
       <span class="absolute -right-8 text-gray-400 w-5 h-5 bg-[eeeff2]">
         <svg
@@ -150,9 +167,7 @@ const toggle = () => {
         </div>
       </div>
 
-      <div
-        class="flex items-center pl-4 border-l border-gray-100 transform translate-x-17"
-      >
+      <div class="flex items-center pl-4 border-l border-gray-100">
         <RouterLink to="/profile">
           <img
             class="w-10 h-10 rounded-full object-cover border border-gray-200"

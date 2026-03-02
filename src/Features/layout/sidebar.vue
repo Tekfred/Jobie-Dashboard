@@ -23,7 +23,10 @@ const currentPageName = computed(() => {
 });
 
 const sideMargin = computed(() => {
-  return uiStore.isSidebarOpen ? "overflow-hidden opacity-100" : "opacity-0";
+  // Slide the curved piece along with the sidebar width
+  return uiStore.isSidebarOpen
+    ? "left-56 opacity-100 pointer-events-none"
+    : "left-12 opacity-0 pointer-events-none";
 });
 
 const sideinfo = computed(() => {
@@ -37,7 +40,7 @@ const sideinfo = computed(() => {
     :class="uiStore.isSidebarOpen ? 'w-65' : 'w-20'"
   >
     <div
-      class="absolute -top-14 left-56 w-20 h-20 bg-[#4B2AAD] -right-3"
+      class="absolute -top-14 w-20 h-20 bg-[#4B2AAD] -right-3 transition-all duration-300"
       :class="sideMargin"
     >
       <div
@@ -55,8 +58,6 @@ const sideinfo = computed(() => {
         <img :src="logo" alt="logo" />
       </div>
 
-      
-
       <!-- 
         👇 The text fades out when sidebar closes
         opacity-100 when open, opacity-0 when closed
@@ -69,13 +70,9 @@ const sideinfo = computed(() => {
       </h1>
     </div>
 
-    <!-- <div
-      class="absolute -top-2 left-60 w-20 h-20 bg-[#4B2AAD] -right-2"
-    ></div> -->
-
     <!-- Navigation -->
     <nav class="space-y-2">
-      <RouterLink
+      <RouterLink 
         v-for="item in menuItems"
         :key="item.path"
         :to="item.path"
@@ -88,7 +85,7 @@ const sideinfo = computed(() => {
           class="flex items-center gap-4 px-4 py-3 rounded-l-[20px] transition-all duration-300 group relative"
           :class="
             isActive
-              ? 'bg-[#e2e2e4] text-[#4B2AAD] -mr-8 overflow-hidden'
+              ? 'bg-[#e2e2e4] text-[#4B2AAD] -mr-6 overflow-hidden'
               : 'text-white/70 hover:text-white hover:bg-white/10 -mr-6'
           "
         >
@@ -106,10 +103,13 @@ const sideinfo = computed(() => {
 
           <!-- Text -->
           <span
-            class="font-medium text-sm"
-            :class="
-              isActive ? 'text-[#4B2AAD] font-semibold overflow-hidden' : ''
-            "
+            class="font-medium text-sm whitespace-nowrap transition-all duration-300 overflow-hidden"
+            :class="[
+              isActive ? 'text-[#4B2AAD] font-semibold' : '',
+              uiStore.isSidebarOpen
+                ? 'max-w-xs opacity-100 w-auto'
+                : 'max-w-0 opacity-0 w-0',
+            ]"
           >
             {{ item.name }}
           </span>

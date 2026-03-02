@@ -1,7 +1,6 @@
 <script setup>
 import StatCard from "@/Features/dashboard/Components/StatCard.vue";
 import ProfileCard from "@/Features/dashboard/Components/ProfileCard.vue";
-import RecentActivityList from "@/Features/dashboard/Components/RecentActivityList.vue";
 import { ref } from "vue";
 
 // Import profile image
@@ -13,7 +12,7 @@ const stats = ref([
     title: "Interviews Schedule",
     value: "86",
     icon: "event",
-    bgColor: "bg-[#6C5DD3]",
+    bgColor: "bg-[#4e36e2]",
     iconBg: "bg-[#5B4BC4]",
   },
   {
@@ -76,22 +75,18 @@ const profile = ref({
   
   <!-- LEFT COLUMN: Profile Card only (33% width, full height) -->
   <div class="lg:col-span-4">
-    <ProfileCard :profile="profile" />
-
-    
-  </div>
+        <ProfileCard :profile="profile" />
+      </div>
 
   <!-- RIGHT COLUMN: Vacancy Stats + Recent Activities stacked (67% width) -->
   <div class="lg:col-span-8 space-y-6">
     <!-- Vacancy Stats -->
     <div class="bg-white rounded-2xl shadow-lg p-6">
-      <h3 class="text-xl font-bold text-gray-800 mb-4">Vacancy Stats</h3>
-      <div class="flex items-center justify-center h-90 text-gray-400">
-        <p>Chart and other content will go here...</p>
-      </div>
-
-      
-    </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Vacancy Stats</h3>
+          <div class="flex items-center justify-center h-90 text-gray-400">
+            <p>Chart and other content will go here...</p>
+          </div>
+        </div>
 
     
 
@@ -101,15 +96,15 @@ const profile = ref({
       ========================================
     -->
     <div class="mb-6">
-      <h3 class="text-xl font-bold text-gray-800 mb-4">Recommended Jobs</h3>
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Recommended Jobs</h3>
       <div class="bg-white rounded-2xl shadow-lg p-6">
         
-        <div class="flex items-center justify-center h-64 text-gray-400">
-          <p>Job cards will go here...</p>
+          <div class="flex items-center justify-center h-64 text-gray-400">
+            <p>Job cards will go here...</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
 
    
@@ -120,16 +115,16 @@ const profile = ref({
       ========================================
     -->
     <div>
-      <div class="bg-white rounded-2xl shadow-lg p-6">
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-xl font-bold text-gray-800">Featured Companies</h3>
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-bold text-gray-800">Featured Companies</h3>
           <button class="text-sm text-[#6C5DD3] hover:text-[#5B4BC4] font-medium flex items-center gap-1">
-            View More
-            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-          </button>
-        </div>
-        <div class="flex items-center justify-center h-32 text-gray-400">
-          <p>Company cards will go here...</p>
+          View More
+          <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </button>
+      </div>
+      <div class="flex items-center justify-center h-32 text-gray-400">
+        <p>Company cards will go here...</p>
         </div>
       </div>
     </div>

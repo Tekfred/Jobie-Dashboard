@@ -1,10 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
-/**
- * RecentActivityList Component
- * Shows a feed of recent user activities
- */
+
 
 const activities = ref([
   {
@@ -45,6 +42,8 @@ const activities = ref([
   }
 ]);
 
+
+
 /**
  * Show "See More" indicator on last item
  */
@@ -57,7 +56,7 @@ const showLoadMore = ref(true);
     <h3 class="text-lg font-bold text-gray-800 mb-6">Recent Activities</h3>
 
     <!-- Activities List -->
-    <div class="space-y-4">
+    <div class="space-y-10">
       <div 
         v-for="(activity, index) in activities" 
         :key="activity.id"
@@ -77,12 +76,12 @@ const showLoadMore = ref(true);
         </div>
 
         <!-- Activity Content -->
-        <div class="flex-1">
+        <div class="flex-2 ">
           <p class="text-sm text-gray-600">
             {{ activity.message }}
             <span class="font-semibold text-gray-800">{{ activity.highlight }}</span>
           </p>
-          <p class="text-xs text-gray-400 mt-1">{{ activity.time }}</p>
+          <p class="text-xs text-gray-400 mt-1 text-start">{{ activity.time }}</p>
         </div>
 
         <!-- Vertical line connecting items (except last item) -->
@@ -95,13 +94,13 @@ const showLoadMore = ref(true);
       <!-- "See More" Button -->
       <div 
         v-if="showLoadMore"
-        class="flex justify-center pt-4"
+        class="flex justify-center transform translate-y-12"
       >
         <button 
-          class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors group"
+          class="flex items-center justify-center w-15 h-15 rounded-full shadow-2xl bg-gray-100 hover:bg-gray-200 transition-colors"
           @click="() => {}"
         >
-          <span class="material-symbols-outlined text-gray-600 group-hover:text-gray-800">
+          <span class="material-symbols-outlined text-white-600 group-hover:text-gray-800 ">
             expand_more
           </span>
         </button>
