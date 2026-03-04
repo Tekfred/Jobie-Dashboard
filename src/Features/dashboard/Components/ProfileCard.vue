@@ -1,13 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import RecentActivityList from '@/Features/dashboard/Components/RecentActivityList.vue';
-/**
- * ProfileCard Component
- * Shows user profile with skills progress
- * 
- * Props:
- * - profile: Object containing user data
- */
+
 
 const props = defineProps({
   profile: {
@@ -16,10 +10,6 @@ const props = defineProps({
   }
 });
 
-/**
- * Skills data with progress percentages
- * Each skill has a name, percentage, and color
- */
 const skills = ref([
   { 
     name: 'PHP', 
@@ -87,7 +77,7 @@ const getStrokeDashoffset = (percentage) => {
               cy="50"
               r="36"
               :stroke="skill.strokeColor"
-              stroke-width="8"
+              stroke-width="13"
               fill="none"
             />
             <!-- Progress circle (main color) -->
@@ -96,7 +86,7 @@ const getStrokeDashoffset = (percentage) => {
               cy="50"
               r="36"
               :stroke="skill.color"
-              stroke-width="8"
+              stroke-width="13"
               fill="none"
               stroke-linecap="round"
               :stroke-dasharray="2 * Math.PI * 36"

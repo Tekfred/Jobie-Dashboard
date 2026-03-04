@@ -1,10 +1,14 @@
 <script setup>
 import StatCard from "@/Features/dashboard/Components/StatCard.vue";
 import ProfileCard from "@/Features/dashboard/Components/ProfileCard.vue";
+import VacancyStats from "./Components/VacancyStats.vue";
+import FeaturedCompanies from "./Components/FeaturedCompanies.vue";
 import { ref } from "vue";
 
 // Import profile image
 import OdaDinkImage from "@/assets/images/profile_img_1.png";
+import Recommendedjobs from "./Components/Recommendedjobs.vue";
+import FeaturedCompanies from "./Components/FeaturedCompanies.vue";
 
 const stats = ref([
   {
@@ -50,18 +54,13 @@ const profile = ref({
 
 <template>
   <div class="w-full">
-    
     <!-- 
       ========================================
       ROW 1: Stats Cards (4 cards across)
       ========================================
     -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-      <StatCard
-        v-for="stat in stats"
-        :key="stat.id"
-        v-bind="stat"
-      />
+      <StatCard v-for="stat in stats" :key="stat.id" v-bind="stat" />
     </div>
 
     <!-- 
@@ -70,44 +69,37 @@ const profile = ref({
       ========================================
       
     -->
-    <!-- Two Column Layout: Oda Dink (LEFT) + Vacancy Stats & Activities (RIGHT) -->
-<div class="grid grid-cols-5 lg:grid-cols-12 gap-6 mb-6">
-  
-  <!-- LEFT COLUMN: Profile Card only (33% width, full height) -->
-  <div class="lg:col-span-4">
+
+    <div class="grid grid-cols-5 lg:grid-cols-12 gap-6 mb-6">
+      <div class="lg:col-span-4">
         <ProfileCard :profile="profile" />
       </div>
 
-  <!-- RIGHT COLUMN: Vacancy Stats + Recent Activities stacked (67% width) -->
-  <div class="lg:col-span-8 space-y-6">
-    <!-- Vacancy Stats -->
-    <div class="bg-white rounded-2xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-4">Vacancy Stats</h3>
-          <div class="flex items-center justify-center h-90 text-gray-400">
-            <p>Chart and other content will go here...</p>
+      <div class="lg:col-span-8 space-y-6">
+        <!-- Vacancy Stats -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+          <div class="flex items-center justify-center h-100 text-gray-400">
+            <VacancyStats />
           </div>
         </div>
 
-    
-
-     <!-- 
+        <!-- 
       ========================================
       ROW 3: Recommended Jobs (Full Width)
       ========================================
     -->
-    <div class="mb-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-4">Recommended Jobs</h3>
-      <div class="bg-white rounded-2xl shadow-lg p-6">
-        
-          <div class="flex items-center justify-center h-64 text-gray-400">
-            <p>Job cards will go here...</p>
+        <div class="mb-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-11">
+            Recommended Jobs
+          </h3>
+          <div>
+            <div class="flex items-center justify-center h-64 text-gray-400">
+              <Recommendedjobs />
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-
-   
 
     <!-- 
       ========================================
@@ -115,16 +107,34 @@ const profile = ref({
       ========================================
     -->
     <div>
-    <div class="bg-white rounded-2xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-xl font-bold text-gray-800">Featured Companies</h3>
-          <button class="text-sm text-[#6C5DD3] hover:text-[#5B4BC4] font-medium flex items-center gap-1">
-          View More
-          <span class="material-symbols-outlined text-lg">arrow_forward</span>
-        </button>
-      </div>
-      <div class="flex items-center justify-center h-32 text-gray-400">
-        <p>Company cards will go here...</p>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-xl font-bold text-gray-800">Featured Companies</h3>
+
+          <div class="flex gap-4">
+            <div class="flex items-center gap-2">
+              <span
+                class="w-3 h-3 rounded-full bg-gray-300 inline-block"
+              ></span>
+              <span
+                class="w-3 h-3 rounded-full bg-gray-300 inline-block"
+              ></span>
+              <span
+                class="w-3 h-3 rounded-full bg-gray-300 inline-block"
+              ></span>
+            </div>
+            <button
+              class="text-xs text-[#40189d] hover:text-[#5B4BC4] border border-primary px-4 py-1.5 rounded-full cursor-pointer font-medium flex items-center gap-1"
+            >
+              View More
+              <span class="material-symbols-outlined text-lg"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center justify-center h-32 text-gray-400">
+          <FeaturedCompanies />
         </div>
       </div>
     </div>

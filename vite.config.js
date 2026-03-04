@@ -11,5 +11,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+
+  optimizeDeps: {
+    include: ['recharts', 'lucide-vue-next'],
+  },
+  build: {
+    commonjsOptions: {
+      include: [/recharts/, /node_modules/],
+    },
+  },
   
 })

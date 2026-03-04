@@ -15,9 +15,7 @@
 
 @import "tailwindcss";
 
-@theme {
-  --font-sans: Inter, system-ui, sans-serif;
-}
+
 /* 
 body {
   margin: 0;
@@ -58,6 +56,29 @@ button:focus-visible {
   padding: 2rem;
   text-align: center;
   
+}
+
+@theme {
+  /* This replaces the 'extend' section of the old config file */
+
+  --font-sans: Inter, system-ui, sans-serif;
+  
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  
+  /* Chart Specifics */
+  --color-chart-primary: hsl(var(--chart-primary));
+  --color-chart-secondary: hsl(var(--chart-secondary));
+  --color-chart-destructive: hsl(var(--chart-destructive));
 }
 
 @media (prefers-color-scheme: light) {

@@ -48,7 +48,7 @@ defineProps({
         </p>
 
         <!-- Big number - the main stat -->
-        <h2 class="text-[32px] font-bold transform translate-x-12 -translate-y-5 tracking-tighter    ">
+        <h2 class="text-[32px] font-bold transform translate-x-12 -translate-y-5 tracking-tighter">
           {{ value }}
         </h2>
       </div>
