@@ -8,7 +8,6 @@ import { ref } from "vue";
 // Import profile image
 import OdaDinkImage from "@/assets/images/profile_img_1.png";
 import Recommendedjobs from "./Components/Recommendedjobs.vue";
-import FeaturedCompanies from "./Components/FeaturedCompanies.vue";
 
 const stats = ref([
   {
