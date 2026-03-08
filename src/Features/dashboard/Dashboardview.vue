@@ -105,7 +105,7 @@ const profile = ref({
       ROW 4: Featured Companies (Full Width)
       ========================================
     -->
-    <div>
+    
       <div>
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-xl font-bold text-gray-800">Featured Companies</h3>
@@ -136,6 +136,6 @@ const profile = ref({
           <FeaturedCompanies />
         </div>
       </div>
-    </div>
+    
   </div>
 </template>
