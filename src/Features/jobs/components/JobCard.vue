@@ -169,6 +169,21 @@ const detailJobs = ref([
     iconBg: "bg-purple-500",
   },
 ]);
+
+const navigationFooter = ref([
+  {
+    id: 1,
+    paragraph: "Showing 10 from 160 data",
+    backBtn: "Previous",
+    currentPage: 1,
+    nextPage: 2,
+    nextPage1: 3,
+    nextPage2: 4,
+    nextBtn: "Next",
+
+
+  }
+])
 </script>
 
 <template>
@@ -231,4 +246,28 @@ const detailJobs = ref([
       </div>
     </div>
   </main>
+
+  <footer>
+
+    <div v-for="navigationFooter in navigationFooter" :key="navigationFooter.id" 
+    class="grid grid-cols-2 gap-15">
+      <p>{{ navigationFooter.paragraph }}</p>
+
+      <div class="flex gap-5">
+        <button>{{ navigationFooter.backBtn }}</button>
+
+        <button class="grid grid-cols-4 space-x-2">
+          <div>{{ navigationFooter.currentPage }}</div>
+          <div>{{ navigationFooter.nextPage }}</div>
+          <div>{{ navigationFooter.nextPage1 }}</div>
+          <div>{{ navigationFooter.nextPage2 }}</div>
+        </button>
+
+        <button>
+          {{  navigationFooter.nextBtn}}
+        </button>
+      </div>
+    </div>
+
+  </footer>
 </template>

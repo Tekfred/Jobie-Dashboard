@@ -88,16 +88,19 @@ const showRejected = ref(false);
         >
       </button>
 
-      <div class="flex space-x-2">
-        <span
-          class="material-symbols-outlined h-10 w-10 rounded-full flex items-center justify-center border border-[#7252D3]"
-          >format_list_bulleted
-        </span>
-        <span
-          class="material-symbols-outlined h-10 w-10 rounded-full flex items-center justify-center border bg-[#4b24a3] text-white"
-          >grid_view
-        </span>
-      </div>
+     <div class="flex space-x-2">
+  
+  <!-- List icon -->
+  <button class="h-10 w-10 rounded-full flex items-center justify-center border border-[#7252D3] cursor-pointer">
+    <span class="material-symbols-outlined text-[20px] text-[#7252D3]">format_list_bulleted</span>
+  </button>
+
+  <!-- Grid icon -->
+  <button class="h-10 w-10 rounded-full flex items-center justify-center bg-[#4b24a3] cursor-pointer">
+    <span class="material-symbols-outlined text-[20px] text-white">grid_view</span>
+  </button>
+
+</div>
     </div>
   </section>
 </template>

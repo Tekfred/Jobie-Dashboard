@@ -12,7 +12,10 @@ import SearchCard from './components/SearchCard.vue';
     <SearchCard />
   </section>
 
-   <JobFilter /> 
+  <section>
+    <JobFilter /> 
+  </section>
+   
 
   <section>
     <JobCard />
