@@ -45,12 +45,15 @@ const toggle = () => {
 </script>
 <template>
   <nav
-    class="flex items-center justify-between border-b border-gray-100 w-full "
+    class="flex items-center justify-between border-b border-gray-100 w-full py-1"
   >
     <!-- Left: hamburger + page title -->
-    <div class="flex items-center relative left-10 transition-all duration-300">
+    <div
+      class="flex items-center relative left-4 md:left-6 lg:left-10 transition-all duration-300"
+    >
+      <!-- Hamburger: hidden on mobile (bottom nav handles navigation) -->
       <button
-        class="hamburger--vortex mr-4 scale-65"
+        class="hamburger--vortex mr-2 md:mr-4 scale-65 hidden md:block"
         :class="{ 'is-active': isActive }"
         @click="toggle"
         aria-label="Menu"
@@ -59,21 +62,26 @@ const toggle = () => {
           <span class="hamburger-inner"></span>
         </span>
       </button>
-      <h1 class="font-poppins text-2xl font-bold text-gray-800 relative">
+
+      <!-- Page Title — shrinks on smaller screens -->
+      <h1
+        class="font-poppins font-bold text-gray-800 relative text-base sm:text-lg md:text-xl lg:text-2xl transition-all duration-300"
+      >
         {{ currentPageName }}
       </h1>
     </div>
 
-    <div class="flex items-center w-1/3 relative">
+    <!-- Search Bar: hidden on mobile (sm), visible on tablet+ -->
+    <div class="hidden sm:flex items-center relative" :class="'w-1/4 md:w-1/3'">
       <input
         type="text"
-        placeholder="Search for something..."
-        class="px-48 bg-[#e0e1e6] border-none rounded-3xl py-3 focus:ring-2 focus:ring-purple-500 transition-all text-sm"
+        placeholder="Search..."
+        class="w-full bg-[#e0e1e6] border-none rounded-3xl py-2 md:py-3 px-4 md:px-8 lg:px-12 focus:ring-2 focus:ring-purple-500 transition-all text-xs md:text-sm"
       />
-      <span class="absolute -right-8 text-gray-400 w-5 h-5 bg-[eeeff2]">
+      <span class="absolute right-3 text-gray-400 w-4 h-4 md:w-5 md:h-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
+          class="h-4 w-4 md:h-5 md:w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -87,15 +95,18 @@ const toggle = () => {
         </svg>
       </span>
     </div>
-    <div class="flex items-center space-x-4">
+
+    <!-- Right: icons + profile -->
+    <div class="flex items-center space-x-2 md:space-x-4">
+      <!-- Bell -->
       <div class="relative">
         <div
           @click="toggleBell"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-[#F4F5F9] cursor-pointer hover:bg-gray-200 transition"
+          class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#F4F5F9] cursor-pointer hover:bg-gray-200 transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-gray-600"
+            class="h-4 w-4 md:h-6 md:w-6 text-gray-600"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -108,7 +119,7 @@ const toggle = () => {
             />
           </svg>
           <span
-            class="absolute -top-1 -right-1 bg-[#40189d] text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white"
+            class="absolute -top-1 -right-1 bg-[#40189d] text-white text-[8px] md:text-[10px] font-bold h-4 w-4 md:h-5 md:w-5 rounded-full flex items-center justify-center border-2 border-white"
           >
             19
           </span>
@@ -116,7 +127,7 @@ const toggle = () => {
 
         <div
           v-if="isBellOpen"
-          class="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl z-50 p-4"
+          class="absolute right-0 mt-2 w-56 md:w-64 bg-white border border-gray-100 rounded-xl shadow-xl z-50 p-4"
         >
           <p class="text-xs font-bold uppercase text-gray-400 mb-2">
             Notifications
@@ -129,14 +140,15 @@ const toggle = () => {
         </div>
       </div>
 
+      <!-- Message -->
       <div class="relative">
         <div
           @click="toggleMsg"
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-[#F4F5F9] cursor-pointer hover:bg-gray-200 transition"
+          class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#F4F5F9] cursor-pointer hover:bg-gray-200 transition"
         >
           <svg
             viewBox="0 0 48 48"
-            class="w-10 h-10 text-gray-600"
+            class="w-7 h-7 md:w-10 md:h-10 text-gray-600"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -148,7 +160,7 @@ const toggle = () => {
             <circle cx="27" cy="23" r="1.2" fill="#FFFFFF" />
           </svg>
           <span
-            class="absolute -top-1 -right-1 bg-[#40189d] text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-white"
+            class="absolute -top-1 -right-1 bg-[#40189d] text-white text-[8px] md:text-[10px] font-bold h-4 w-4 md:h-5 md:w-5 rounded-full flex items-center justify-center border-2 border-white"
           >
             {{ notification }}
           </span>
@@ -156,7 +168,7 @@ const toggle = () => {
 
         <div
           v-if="isMsgOpen"
-          class="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl z-50 p-4"
+          class="absolute right-0 mt-2 w-56 md:w-64 bg-white border border-gray-100 rounded-xl shadow-xl z-50 p-4"
         >
           <p class="text-xs font-bold uppercase text-gray-400 mb-2">Messages</p>
           <RouterLink
@@ -167,15 +179,17 @@ const toggle = () => {
         </div>
       </div>
 
-      <div class="flex items-center pl-4 border-l border-gray-100">
+      <!-- Profile -->
+      <div class="flex items-center pl-2 md:pl-4 border-l border-gray-100">
         <RouterLink to="/profile">
           <img
-            class="w-10 h-10 rounded-full object-cover border border-gray-200"
+            class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-[#4B2AAD]/30 ring-2 ring-[#4B2AAD]/20 hover:ring-[#4B2AAD]/60 transition-all duration-300 shadow-md"
             :src="Freddy"
             alt="Profile"
           />
         </RouterLink>
-        <div class="ml-3 hidden sm:block">
+        <!-- Name + role: hidden on sm and md, visible on lg+ -->
+        <div class="ml-3 hidden lg:block">
           <h3 class="text-sm font-bold text-gray-800 leading-tight">
             Freddy J. Smith
           </h3>

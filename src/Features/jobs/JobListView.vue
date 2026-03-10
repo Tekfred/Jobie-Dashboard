@@ -1,15 +1,26 @@
 <script setup>
 import { ref } from 'vue';
 import { useJobStore } from '../../stores/JobStore';
-import JobCard from './components/JobCard.vue'
-import JobFilter from './components/JobFilter.vue'
+import JobCard from './components/JobCard.vue';
+import JobFilter from './components/JobFilter.vue';
+import SearchCard from './components/SearchCard.vue';
 </script>
 
 <template>
-  <div class="p-6">
-     <JobFilter />
+
+  <section>
+    <SearchCard />
+  </section>
+
+   <JobFilter /> 
+
+  <section>
     <JobCard />
-  </div>
+  </section>
+  
+    
+   
+  
 
   
 

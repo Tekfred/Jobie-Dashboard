@@ -36,7 +36,7 @@ const sideinfo = computed(() => {
 
 <template>
   <aside
-    class="fixed left-0 top-0 h-screen bg-[#4B2AAD] px-6 py-8 text-white shadow-2xl z-20 transition-all duration-300"
+    class="fixed left-0 top-0 h-screen bg-[#4B2AAD] px-6 py-8 text-white shadow-2xl z-20 transition-all duration-300 hidden md:flex md:flex-col"
     :class="uiStore.isSidebarOpen ? 'w-65' : 'w-20'"
   >
     <div
@@ -72,7 +72,7 @@ const sideinfo = computed(() => {
 
     <!-- Navigation -->
     <nav class="space-y-2">
-      <RouterLink 
+      <RouterLink
         v-for="item in menuItems"
         :key="item.path"
         :to="item.path"

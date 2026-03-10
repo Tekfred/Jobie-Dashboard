@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const MainLayout = () => import('@/Features/layout/MainLayout.vue')
 const DashboardView = () => import('@/Features/dashboard/DashboardView.vue')
 const JobListView = () => import('@/Features/jobs/JobListView.vue')
+const ProfileView = () => import('@/Features/profile/ProfileView.vue')
 const ApplicationsView = () => import('@/features/applications/ApplicationsView.vue')
 
 const routes = [
@@ -25,7 +26,12 @@ const routes = [
         path: 'applications', // (localhost:5173/applications)
         name: 'applications',
         component:ApplicationsView
-      }, 
+      },
+      {
+        path:'profile',
+        name: 'profile',
+        component: ProfileView
+      } 
     ]
   }
 ]

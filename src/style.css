@@ -58,6 +58,11 @@ button:focus-visible {
   
 }
 
+.upside-down {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
 @theme {
   /* This replaces the 'extend' section of the old config file */
 
