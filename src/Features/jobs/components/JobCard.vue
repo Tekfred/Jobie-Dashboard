@@ -250,21 +250,24 @@ const navigationFooter = ref([
   <footer>
 
     <div v-for="navigationFooter in navigationFooter" :key="navigationFooter.id" 
-    class="grid grid-cols-2 gap-15">
-      <p>{{ navigationFooter.paragraph }}</p>
+    class="flex justify-between gap-15 md:space-x-12">
+      <p class="text-[#3d4a53] font-semibold hidden md:block">{{ navigationFooter.paragraph }}</p>
 
       <div class="flex gap-5">
-        <button>{{ navigationFooter.backBtn }}</button>
+        <button class="text-md font-semibold text-[#40189d] flex gap-2 bg-white hover:bg-[#d8c9ff] px-4 py-2.5 rounded-full  cursor-pointer">
+          <span class="material-symbols-outlined ">keyboard_double_arrow_left</span>
+          {{ navigationFooter.backBtn }}</button>
 
-        <button class="grid grid-cols-4 space-x-2">
-          <div>{{ navigationFooter.currentPage }}</div>
-          <div>{{ navigationFooter.nextPage }}</div>
-          <div>{{ navigationFooter.nextPage1 }}</div>
-          <div>{{ navigationFooter.nextPage2 }}</div>
+        <button class="grid grid-cols-4 space-x-2 bg-[#e9e0ff] font-semibold text-[#40189d] text-center items-center px-2 rounded-full cursor-pointer">
+          <div class="w-5 h-5 md:w-10 md:h-10 rounded-full object-cover border-2 border-[#4B2AAD]/30 ring-2 hover:bg-[#d8c9ff]">{{ navigationFooter.currentPage }}</div>
+          <div class="hover:bg-[#d8c9ff] hover:w-10 hover:h-10 hover:rounded-full">{{ navigationFooter.nextPage }}</div>
+          <div class="hover:bg-[#d8c9ff] hover:w-10 hover:h-10 hover:rounded-full">{{ navigationFooter.nextPage1 }}</div>
+          <div class="hover:bg-[#d8c9ff] hover:w-10 hover:h-10 hover:rounded-full">{{ navigationFooter.nextPage2 }}</div>
         </button>
 
-        <button>
+        <button class="text-md font-semibold text-[#40189d] flex gap-2 bg-white hover:bg-[#d8c9ff] px-4 py-2.5 rounded-full cursor-pointer">
           {{  navigationFooter.nextBtn}}
+          <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
         </button>
       </div>
     </div>

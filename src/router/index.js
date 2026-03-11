@@ -6,6 +6,7 @@ const DashboardView = () => import('@/Features/dashboard/DashboardView.vue')
 const JobListView = () => import('@/Features/jobs/JobListView.vue')
 const ProfileView = () => import('@/Features/profile/ProfileView.vue')
 const ApplicationsView = () => import('@/features/applications/ApplicationsView.vue')
+const MessageView = () => import('@/features/Messages/MessageView.vue')
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path:'profile',
         name: 'profile',
         component: ProfileView
+      },
+      {
+        path:'messages',
+        name: 'messages',
+        component: MessageView
       } 
     ]
   }

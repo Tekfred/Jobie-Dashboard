@@ -20,6 +20,7 @@ const menuItems = [
   { name: "Message", path: "/messages" },
   { name: "Statistics", path: "/statistics" },
   { name: "News", path: "/news" },
+  { name: "Profile", path: "/profile" }
 ];
 
 const currentPageName = computed(() => {

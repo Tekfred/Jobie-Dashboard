@@ -76,7 +76,7 @@ const sideinfo = computed(() => {
         v-for="item in menuItems"
         :key="item.path"
         :to="item.path"
-        v-slot="{ isActive }"
+        v-slot="{ isExactActive }"
         custom
       >
         <a
@@ -84,7 +84,7 @@ const sideinfo = computed(() => {
           @click.prevent="$router.push(item.path)"
           class="flex items-center gap-4 px-4 py-3 rounded-l-[20px] transition-all duration-300 group relative"
           :class="
-            isActive
+            isExactActive
               ? 'bg-[#e2e2e4] text-[#4B2AAD] -mr-6 overflow-hidden'
               : 'text-white/70 hover:text-white hover:bg-white/10 -mr-6'
           "
@@ -93,7 +93,7 @@ const sideinfo = computed(() => {
           <span
             class="material-symbols-outlined text-2xl transition-colors"
             :class="
-              isActive
+              isExactActive
                 ? 'text-[#4B2AAD] '
                 : 'text-white/70 group-hover:text-white '
             "
@@ -105,7 +105,7 @@ const sideinfo = computed(() => {
           <span
             class="font-medium text-sm whitespace-nowrap transition-all duration-300 overflow-hidden"
             :class="[
-              isActive ? 'text-[#4B2AAD] font-semibold' : '',
+              isExactActive ? 'text-[#4B2AAD] font-semibold' : '',
               uiStore.isSidebarOpen
                 ? 'max-w-xs opacity-100 w-auto'
                 : 'max-w-0 opacity-0 w-0',
