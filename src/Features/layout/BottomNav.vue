@@ -11,6 +11,7 @@ const navItems = [
   { name: "Applications", path: "/applications", icon: "description" },
   { name: "Messages", path: "/messages", icon: "chat" },
   { name: "Stats", path: "/statistics", icon: "incomplete_circle" },
+  { name: "News", path: "/news", icon: "newspaper"}
 ];
 
 const isActive = (path) => {

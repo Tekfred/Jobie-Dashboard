@@ -7,6 +7,8 @@ const JobListView = () => import('@/Features/jobs/JobListView.vue')
 const ProfileView = () => import('@/Features/profile/ProfileView.vue')
 const ApplicationsView = () => import('@/features/applications/ApplicationsView.vue')
 const MessageView = () => import('@/features/Messages/MessageView.vue')
+const StatisticsView = () => import('@/features/Statistics/StatisticsView.vue')
+const NewsView = () => import('@/features/News/NewsView.vue')
 
 const routes = [
     {
@@ -37,7 +39,17 @@ const routes = [
         path:'messages',
         name: 'messages',
         component: MessageView
-      } 
+      },
+      {
+        path:'statistics',
+        name: 'statistics',
+        component: StatisticsView
+      },
+      {
+        path: 'news',
+        name: 'news',
+        component: NewsView
+      }
     ]
   }
 ]

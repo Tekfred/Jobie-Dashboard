@@ -1,17 +1,31 @@
 <script setup>
-import RecentActivityList from '@/Features/dashboard/Components/RecentActivityList.vue';
+import profileImage from "@/assets/images/profile_img_1.png";
 
-const props = defineProps({
-  profile: {
-    type: Object,
-    default: () => ({ name: '', title: '', image: '' }),
-  }
-});
+const profile = {
+  name: "Oda Dink",
+  title: "Programmer",
+  image: profileImage,
+};
 
 const skills = [
-  { name: 'PHP',     percentage: 66, color: '#FF9066', strokeColor: '#FFE5D9' },
-  { name: 'Vue',     percentage: 31, color: '#42D697', strokeColor: '#D4F4E6' },
-  { name: 'Laravel', percentage: 7,  color: '#4CAFE8', strokeColor: '#D9F0FA' },
+  {
+    name: "PHP",
+    percentage: 66,
+    color: "#FF9066",
+    strokeColor: "#FFE5D9",
+  },
+  {
+    name: "Vue",
+    percentage: 31,
+    color: "#42D697",
+    strokeColor: "#D4F4E6",
+  },
+  {
+    name: "Laravel",
+    percentage: 7,
+    color: "#4CAFE8",
+    strokeColor: "#D9F0FA",
+  },
 ];
 
 const circumference = 2 * Math.PI * 36;
@@ -22,18 +36,20 @@ const getStrokeDashoffset = (percentage) => {
 </script>
 
 <template>
-  <div class="bg-white rounded-2xl shadow-lg p-6">
+  <div class="bg-white rounded-2xl shadow-lg ">
     <!-- Profile Header -->
     <div class="flex flex-col items-center mb-6">
       <!-- Profile Image with circular border -->
       <div class="relative mb-4">
         <!-- Outer purple ring -->
-        <div class="absolute inset-0 rounded-full bg-linear-to-br from-[#6C5DD3] to-[#8B7CE8] p-1">
+        <div
+          class="absolute inset-0 rounded-full bg-linear-to-br from-[#6C5DD3] to-[#8B7CE8] p-1"
+        >
           <div class="w-full h-full bg-white rounded-full"></div>
         </div>
         <!-- Profile picture -->
-        <img 
-          :src="profile.image" 
+        <img
+          :src="profileImage"
           :alt="profile.name"
           class="relative w-24 h-24 rounded-full object-cover border-4 border-white"
         />
@@ -46,8 +62,8 @@ const getStrokeDashoffset = (percentage) => {
 
     <!-- Skills Section -->
     <div class="grid grid-cols-3 gap-4 mb-6">
-      <div 
-        v-for="skill in skills" 
+      <div
+        v-for="skill in skills"
         :key="skill.name"
         class="flex flex-col items-center"
       >
@@ -73,15 +89,17 @@ const getStrokeDashoffset = (percentage) => {
               stroke-width="13"
               fill="none"
               stroke-linecap="round"
-              :stroke-dasharray="2 * Math.PI * 36"
+              :stroke-dasharray="circumference"
               :stroke-dashoffset="getStrokeDashoffset(skill.percentage)"
               class="transition-all duration-500 ease-out"
             />
           </svg>
-          
+
           <!-- Percentage text in center -->
           <div class="absolute inset-0 flex items-center justify-center">
-            <span class="text-xs font-bold text-gray-700">{{ skill.percentage }}%</span>
+            <span class="text-xs font-bold text-gray-700"
+              >{{ skill.percentage }}%</span
+            >
           </div>
         </div>
 
@@ -89,8 +107,5 @@ const getStrokeDashoffset = (percentage) => {
         <p class="text-xs font-medium text-gray-600 mt-2">{{ skill.name }}</p>
       </div>
     </div>
-
-    <!-- Recent Activities (under Vacancy Stats, same column) -->
-    <RecentActivityList />
   </div>
 </template>
