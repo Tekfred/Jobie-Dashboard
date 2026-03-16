@@ -17,7 +17,7 @@ const menuItems = [
   { name: "Dashboard", path: "/home" },
   { name: "Search Job", path: "/search" },
   { name: "Applications", path: "/applications" },
-  { name: "Message", path: "/messages" },
+  // { name: "Message", path: "/messages" },
   { name: "Statistics", path: "/statistics" },
   { name: "News", path: "/news" },
   { name: "Profile", path: "/profile" }
@@ -167,7 +167,7 @@ const toggle = () => {
           </span>
         </div>
 
-        <div
+        <!-- <div
           v-if="isMsgOpen"
           class="absolute right-0 mt-2 w-56 md:w-64 bg-white border border-gray-100 rounded-xl shadow-xl z-50 p-4"
         >
@@ -177,7 +177,7 @@ const toggle = () => {
             class="text-sm text-gray-700 hover:text-purple-600"
             >New message from HR...</RouterLink
           >
-        </div>
+        </div> -->
       </div>
 
       <!-- Profile -->

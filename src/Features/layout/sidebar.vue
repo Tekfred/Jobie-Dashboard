@@ -12,7 +12,7 @@ const menuItems = [
   { name: "Dashboard", path: "/", icon: "home" },
   { name: "Search Job", path: "/search", icon: "search" },
   { name: "Applications", path: "/applications", icon: "description" },
-  { name: "Message", path: "/messages", icon: "chat" },
+  // { name: "Message", path: "/messages", icon: "chat" },
   { name: "Statistics", path: "/statistics", icon: "incomplete_circle" },
   { name: "News", path: "/news", icon: "newspaper" },
 ];

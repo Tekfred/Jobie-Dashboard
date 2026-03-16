@@ -1,44 +1,54 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+const LoginView = () => import('@/Features/Authentication/loginpage.vue')
 
 const MainLayout = () => import('@/Features/layout/MainLayout.vue')
 const DashboardView = () => import('@/Features/dashboard/DashboardView.vue')
 const JobListView = () => import('@/Features/jobs/JobListView.vue')
 const ProfileView = () => import('@/Features/profile/ProfileView.vue')
 const ApplicationsView = () => import('@/features/applications/ApplicationsView.vue')
-const MessageView = () => import('@/features/Messages/MessageView.vue')
 const StatisticsView = () => import('@/features/Statistics/StatisticsView.vue')
 const NewsView = () => import('@/features/News/NewsView.vue')
 
 const routes = [
-    {
+  // 🔐 Login Page
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+
+  // 🔁 Redirect root → login
+  {
     path: '/',
+    redirect: '/login'
+  },
+
+  // 🧱 Protected App
+  {
+    path: '/app',
     component: MainLayout,
+    meta: { requiresAuth: true },
     children: [
       {
-        path: '', // This is the default page (localhost:5173/)
+        path: 'dashboard',
         name: 'dashboard',
         component: DashboardView
       },
       {
-        path: 'search', // (localhost:5173/jobs search)
+        path: 'search',
         name: 'job-search',
-        component:JobListView
+        component: JobListView
       }, 
       {
-        path: 'applications', // (localhost:5173/applications)
+        path: 'applications',
         name: 'applications',
-        component:ApplicationsView
+        component: ApplicationsView
       },
       {
         path:'profile',
         name: 'profile',
         component: ProfileView
-      },
-      {
-        path:'messages',
-        name: 'messages',
-        component: MessageView
       },
       {
         path:'statistics',
@@ -55,8 +65,21 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes
+  history: createWebHistory(),
+  routes
+})
+
+/* 🛡 Route Guard */
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = localStorage.getItem('auth') === 'true'
+
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    next('/login')
+  } else if (to.path === '/login' && isLoggedIn) {
+    next('/app/dashboard')
+  } else {
+    next()
+  }
 })
 
 export default router
