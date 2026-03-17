@@ -32,6 +32,14 @@ const sideMargin = computed(() => {
 const sideinfo = computed(() => {
   return uiStore.isSidebarOpen ? "opacity-100" : "opacity-0";
 });
+
+
+// const Logout = () => {
+//   if (confirm("Are you sure you want to logout?")) {
+//     localStorage.removeItem("auth")
+//     router.push("/login")
+//   }
+// }
 </script>
 
 <template>
@@ -117,6 +125,8 @@ const sideinfo = computed(() => {
       </RouterLink>
     </nav>
 
+    
+
     <!-- Footer -->
     <div
       class="absolute bottom-10 left-8 text-[10px] text-white/40 tracking-wider"
@@ -126,5 +136,16 @@ const sideinfo = computed(() => {
       <p class="mt-1">© 2020 All Rights Reserved</p>
       <p class="mt-2">Made with ❤️ by Peterdraw</p>
     </div>
+
+    <div>
+  <button
+    @click="Logout"
+    class="flex items-center gap-3 w-full px-4 py-2
+           text-red-500 hover:bg-red-50 rounded-lg transition"
+  >
+    <span class="material-symbols-outlined">logout</span>
+    Logout
+  </button>
+</div>
   </aside>
 </template>

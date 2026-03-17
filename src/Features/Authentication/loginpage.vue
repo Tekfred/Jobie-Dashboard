@@ -23,18 +23,18 @@ const triggerToast = (msg, type = "success") => {
 }
 
 const handleLogin = () => {
-  const validEmail = userEmail.value === "admins"
-  const validPhone = phone.value === "233551234567"
-  const validPass = password.value === "!!EXh-dR3$"
+  const id = activeTab.value === "email" ? userEmail.value : userphone.value
 
-  if ((validEmail || validPhone) && validPass) {
+  if ( id === "admins@gmail.com" && password.value === "!!Exh-dR3$") {
     localStorage.setItem("auth", "true")
 
     triggerToast("Welcome back 🎉", "success")
-
+    
     setTimeout(() => {
-      router.push("/Features/dashboard/DashboardView.vue")
+       
+       router.push("/app")
     }, 1200)
+   
   } else {
     triggerToast("Invalid credentials ❌", "error")
   }
@@ -44,23 +44,19 @@ const setTab = (tab) => (activeTab.value = tab)
 </script>
 
 <template>
-  <form class="min-h-screen bg-[#F5F6FA] flex" @submit.prevent="handleLogin">
+  <div class="min-h-screen bg-[#F5F6FA] flex">
 
-    <!-- LEFT PANEL (Hidden on mobile) -->
     <div
       class="hidden lg:flex lg:w-1/2 relative overflow-hidden
              bg-linear-to-br from-[#5B2DD1] to-[#7A5AF8] text-white"
     >
-      <!-- Decorative blobs -->
       <div class="absolute inset-0 opacity-20">
         <div class="absolute w-96 h-96 bg-white rounded-full -top-24 -left-24"></div>
         <div class="absolute w-80 h-80 bg-white rounded-full top-1/3 right-[-120px]"></div>
         <div class="absolute w-72 h-72 bg-white rounded-full bottom-[-80px] left-1/4"></div>
       </div>
 
-      <!-- Content -->
       <div class="relative z-10 flex flex-col justify-center px-16 xl:px-24">
-        <!-- Logo -->
         <div class="flex items-center gap-3 mb-14">
           <div class="w-12 h-12 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center font-bold text-xl">
             J
@@ -78,7 +74,6 @@ const setTab = (tab) => (activeTab.value = tab)
           that match your skills and aspirations.
         </p>
 
-        <!-- Stats -->
         <div class="flex gap-16">
           <div>
             <div class="text-3xl font-bold">45K+</div>
@@ -96,11 +91,9 @@ const setTab = (tab) => (activeTab.value = tab)
       </div>
     </div>
 
-    <!-- RIGHT PANEL -->
     <div class="w-full lg:w-1/2 flex items-center justify-center px-6 py-12">
       <div class="w-full max-w-md">
 
-        <!-- Mobile Logo -->
         <div class="lg:hidden flex items-center gap-3 mb-10">
           <div class="w-10 h-10 rounded-xl bg-[#5B2DD1] text-white flex items-center justify-center font-bold">
             J
@@ -108,7 +101,6 @@ const setTab = (tab) => (activeTab.value = tab)
           <span class="text-xl font-semibold text-[#5B2DD1]">Jobie</span>
         </div>
 
-        <!-- Header -->
         <h2 class="text-3xl font-bold text-[#111827] mb-2">
           Welcome Back <span>👋</span>
         </h2>
@@ -116,22 +108,20 @@ const setTab = (tab) => (activeTab.value = tab)
           Sign in to continue to your dashboard
         </p>
 
-        <!-- Social Buttons -->
         <div class="grid grid-cols-2 gap-4 mb-8">
-          <button class="bg-white border border-gray-200 rounded-xl py-3 font-medium hover:bg-gray-50 transition">Google</button>
-          <button class="bg-white border border-gray-200 rounded-xl py-3 font-medium hover:bg-gray-50 transition">Apple</button>
+          <button type="button" class="bg-white border border-gray-200 rounded-xl py-3 font-medium hover:bg-gray-50 transition">Google</button>
+          <button type="button" class="bg-white border border-gray-200 rounded-xl py-3 font-medium hover:bg-gray-50 transition">Apple</button>
         </div>
 
-        <!-- Divider -->
         <div class="flex items-center gap-4 mb-8">
           <div class="flex-1 h-px bg-gray-200"></div>
           <span class="text-xs text-gray-400 tracking-wider">OR CONTINUE WITH</span>
           <div class="flex-1 h-px bg-gray-200"></div>
         </div>
 
-        <!-- Email / Phone Toggle -->
         <div class="bg-[#ECEEF3] rounded-xl p-1 flex mb-8">
           <button   
+            type="button"
             @click="setTab('email')"
             :class="activeTab === 'email' ? 'bg-white shadow text-gray-800' : 'text-gray-500'"
             class="flex-1 py-2.5 rounded-lg text-sm font-medium transition"
@@ -139,6 +129,7 @@ const setTab = (tab) => (activeTab.value = tab)
             ✉️ Email
           </button>
           <button
+            type="button"
             @click="setTab('phone')"
             :class="activeTab === 'phone' ? 'bg-white shadow text-gray-800' : 'text-gray-500'"
             class="flex-1 py-2.5 rounded-lg text-sm font-medium transition"
@@ -147,59 +138,51 @@ const setTab = (tab) => (activeTab.value = tab)
           </button>
         </div>
 
-        <!-- Form -->
-        <form class="space-y-6">
+        <form  class="space-y-6" @submit.prevent="handleLogin" >
 
-          <!-- Email -->
           <div v-if="activeTab === 'email'">
             <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
             <div class="relative">
-             <input
-  v-model="userEmail"
-  type="email"
-  placeholder="hello@example.com"
-  class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3
-         focus:outline-none focus:ring-2 focus:ring-[#5B2DD1]/30"
-/>
+              <input
+                v-model="userEmail"
+                type="email"
+                placeholder="admin"
+                class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#5B2DD1]/30"
+              />
             </div>
           </div>
 
-          <!-- Phone -->
           <div v-else>
             <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
             <div class="relative">
               <input
-  v-model="phone"
-  type="tel"
-  placeholder="+233 55 123 4567"
-  class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3
-         focus:outline-none focus:ring-2 focus:ring-[#5B2DD1]/30"
-/>
+                v-model="userphone"
+                type="tel"
+                placeholder="+233 55 123 4567"
+                class="w-full bg-whit e border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#5B2DD1]/30"
+              />
             </div>
           </div>
 
-          <!-- Password -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
             <div class="relative">
               <input
-  v-model="password"
-  :type="showPassword ? 'text' : 'password'"
-  placeholder="Enter your password"
-  class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3
-         focus:outline-none focus:ring-2 focus:ring-[#5B2DD1]/30 pr-12"
-/>
+                v-model="password"
+                :type="showPassword ? 'text' : 'password'"
+                placeholder="Enter your password"
+                class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#5B2DD1]/30 pr-12"
+              />
               <button
                 type="button"
                 @click="showPassword = !showPassword"
-                class="absolute right-4 text-gray-400"
+                class="absolute right-4 top-3.5 text-gray-400"
               >
                 👁️
               </button>
             </div>
           </div>
 
-          <!-- Options -->
           <div class="flex items-center justify-between text-sm">
             <label class="flex items-center gap-2 text-gray-600">
               <input type="checkbox" class="accent-[#5B2DD1]" />
@@ -210,32 +193,25 @@ const setTab = (tab) => (activeTab.value = tab)
             </a>
           </div>
 
-          <!-- Submit -->
           <button type="submit" class="w-full bg-[#5B2DD1] hover:bg-[#4c24b8] text-white font-semibold
-         py-3 rounded-xl transition shadow-lg shadow-[#5B2DD1]/20" @click.prevent="handleLogin">
+          py-3 rounded-xl transition shadow-lg shadow-[#5B2DD1]/20">
             Sign In →
           </button>
 
           <div
-    v-if="showToast"
-    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg text-sm font-medium transition-all duration-300 "
-    :class="
-  toastType === 'success'
-    ? 'bg-[#181D31] text-white animate__animated animate__ease-out'
-    : 'bg-red-600 text-white'
-"
-  >
-    {{ toastMessage }}
-  </div>
+            v-if="showToast"
+            class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg text-sm font-medium transition-all duration-300 "
+            :class="toastType === 'success' ? 'bg-[#181D31] text-white' : 'bg-red-600 text-white'"
+          >
+            {{ toastMessage }}
+          </div>
         </form>
 
-        <!-- Footer -->
         <p class="text-center text-gray-500 text-sm mt-10">
           Don't have an account?
           <a href="#" class="text-[#5B2DD1] font-semibold">Create Account</a>
         </p>
       </div>
     </div>
-  </form>
+  </div>
 </template>
-

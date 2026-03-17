@@ -6,9 +6,9 @@ const MainLayout = () => import('@/Features/layout/MainLayout.vue')
 const DashboardView = () => import('@/Features/dashboard/DashboardView.vue')
 const JobListView = () => import('@/Features/jobs/JobListView.vue')
 const ProfileView = () => import('@/Features/profile/ProfileView.vue')
-const ApplicationsView = () => import('@/features/applications/ApplicationsView.vue')
-const StatisticsView = () => import('@/features/Statistics/StatisticsView.vue')
-const NewsView = () => import('@/features/News/NewsView.vue')
+const ApplicationsView = () => import('@/Features/applications/ApplicationsView.vue')
+const StatisticsView = () => import('@/Features/Statistics/StatisticsView.vue')
+const NewsView = () => import('@/Features/News/NewsView.vue')
 
 const routes = [
   // 🔐 Login Page
