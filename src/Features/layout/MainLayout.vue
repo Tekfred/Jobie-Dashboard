@@ -33,7 +33,7 @@ const uiStore = useUiStore();
 
       <!-- Page content -->
       <main
-        class="flex-1 px-4 sm:px-2 py-4 sm:py-3 bg-[#f1f1f1] overflow-y-auto"
+        class="flex-1 px-4 sm:px-2 py-4 sm:py-3 bg-[#f1f1f1] overflow-y-auto min-h-0"
       >
         <router-view />
       </main>

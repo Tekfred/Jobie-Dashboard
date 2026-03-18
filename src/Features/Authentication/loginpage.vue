@@ -8,7 +8,7 @@ const activeTab = ref("email")
 const showPassword = ref(false)
 
 const userEmail = ref("")
-const phone = ref("")
+const userPhone = ref("")
 const password = ref("")
 
 const toastMessage = ref("")
@@ -23,7 +23,7 @@ const triggerToast = (msg, type = "success") => {
 }
 
 const handleLogin = () => {
-  const id = activeTab.value === "email" ? userEmail.value : userphone.value
+  const id = activeTab.value === "email" ? userEmail.value : userPhone.value
 
   if ( id === "admins@gmail.com" && password.value === "!!Exh-dR3$") {
     localStorage.setItem("auth", "true")
@@ -31,9 +31,8 @@ const handleLogin = () => {
     triggerToast("Welcome back 🎉", "success")
     
     setTimeout(() => {
-       
-       router.push("/app")
-    }, 1200)
+  router.push("/app/dashboard")   // ← direct to the protected child
+}, 1200)
    
   } else {
     triggerToast("Invalid credentials ❌", "error")
@@ -90,7 +89,6 @@ const setTab = (tab) => (activeTab.value = tab)
         </div>
       </div>
     </div>
-
     <div class="w-full lg:w-1/2 flex items-center justify-center px-6 py-12">
       <div class="w-full max-w-md">
 

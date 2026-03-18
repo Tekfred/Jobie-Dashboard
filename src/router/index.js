@@ -18,10 +18,11 @@ const routes = [
     component: LoginView
   },
 
-  // 🔁 Redirect root → login
+  // 🔁 Redirect root → loginL
+
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/app/dashboard'
   },
 
   // 🧱 Protected App
@@ -33,32 +34,38 @@ const routes = [
       {
         path: 'dashboard',
         name: 'dashboard',
-        component: DashboardView
+        component: DashboardView,
+        
       },
       {
         path: 'search',
         name: 'job-search',
-        component: JobListView
+        component: JobListView,
+        
       }, 
       {
         path: 'applications',
         name: 'applications',
-        component: ApplicationsView
+        component: ApplicationsView,
+        
       },
       {
         path:'profile',
         name: 'profile',
-        component: ProfileView
+        component: ProfileView,
+        
       },
       {
         path:'statistics',
         name: 'statistics',
-        component: StatisticsView
+        component: StatisticsView,
+        
       },
       {
         path: 'news',
         name: 'news',
-        component: NewsView
+        component: NewsView,
+          
       }
     ]
   }
@@ -75,9 +82,11 @@ router.beforeEach((to, from, next) => {
 
   if (to.meta.requiresAuth && !isLoggedIn) {
     next('/login')
-  } else if (to.path === '/login' && isLoggedIn) {
+  } 
+  else if (to.path === '/login' && isLoggedIn) {
     next('/app/dashboard')
-  } else {
+  } 
+  else {
     next()
   }
 })
