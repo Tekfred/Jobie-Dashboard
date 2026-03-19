@@ -21,7 +21,7 @@ defineProps({
     class="stat-card group"
     :class="animClass"
   >
-    <span class="stat-label">{{ label }}</span>
+    <span class="stat-label ">{{ label }}</span>
 
     <div class="flex items-end justify-between mt-1">
       <span class="stat-value">{{ value }}</span>

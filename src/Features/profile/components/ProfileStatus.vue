@@ -1,16 +1,12 @@
   <script setup>
-  import profileImage from "@/assets/images/profile_img_1.png";
+  
 
-  const profile = {
-  id: 1,
-  name: "Oda Dink",
-  title: "Programmer",
-  image: profileImage,
-  following: 228,
-  followers: 4842,
-  phone: "+50 123 456 78",
-  email: "davidheree@mail.com",
-};
+  const props = defineProps({
+  profile: {
+    type: Object,
+    required: true
+  }
+})
 
 const portfolios = [
   { platform: "facebook", handle: "/davidheree.porto", icon: "facebook", bg: "#1877F2" },

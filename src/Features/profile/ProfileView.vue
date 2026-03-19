@@ -4,8 +4,21 @@ import EditProfile from './components/EditProfile.vue';
 import Portfolio from './components/Portfolio.vue'
 import ProfileStatus from './components/ProfileStatus.vue'
 
+import profileImage from "@/assets/images/profile_img_1.png";
 
+// {name: "profile", path: "/app/profile", icon: "person"}
 
+ 
+const profile = {
+  id: 1,
+  name: "Oda Dink",
+  title: "Programmer",
+  image: profileImage,
+  following: 228,
+  followers: 4842,
+  phone: "+50 123 456 78",
+  email: "davidheree@mail.com",
+};
 
 </script>
 

@@ -14,14 +14,15 @@ const notification = ref(18);
 
 // Menu items mirrored from sidebar to resolve the current page name
 const menuItems = [
-  { name: "Dashboard", path: "/home" },
-  { name: "Search Job", path: "/search" },
-  { name: "Applications", path: "/applications" },
+  { name: "Dashboard", path: "/app/home" },
+  { name: "Search Job", path: "/app/search" },
+  { name: "Applications", path: "/app/applications" },
   // { name: "Message", path: "/messages" },
-  { name: "Statistics", path: "/statistics" },
-  { name: "News", path: "/news" },
-  { name: "Profile", path: "/profile" }
+  { name: "Statistics", path: "/app/statistics" },
+  { name: "News", path: "/app/news" },
+  { name: "Profile", path: "/app/profile" }
 ];
+
 
 const currentPageName = computed(() => {
   const current = menuItems.find((item) => item.path === route.path);
@@ -43,6 +44,16 @@ const toggle = () => {
   isActive.value = !isActive.value;
   uiStore.toggleSidebar();
 };
+
+// const goToProfile = () => {
+//   if (isNavigatingToProfile.value) return;
+//   isNavigatingToProfile.value = true;
+ 
+//   setTimeout(() => {
+//     router.push("/app/profile");
+//     isNavigatingToProfile.value = false;
+//   }, 4000); // 4 seconds
+// };
 </script>
 <template>
   <nav
@@ -182,7 +193,7 @@ const toggle = () => {
 
       <!-- Profile -->
       <div class="flex items-center pl-2 md:pl-4 border-l border-gray-100">
-        <RouterLink to="/profile">
+        <RouterLink to="/app/profile">
           <img
             class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-[#4B2AAD]/30 ring-2 ring-[#4B2AAD]/20 hover:ring-[#4B2AAD]/60 transition-all duration-300 shadow-md"
             :src="Freddy"

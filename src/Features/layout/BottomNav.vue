@@ -6,12 +6,12 @@ const route = useRoute();
 const router = useRouter();
 
 const navItems = [
-  { name: "Home", path: "/", icon: "home" },
-  { name: "Search", path: "/search", icon: "search" },
-  { name: "Applications", path: "/applications", icon: "description" },
-  // { name: "Messages", path: "/messages", icon: "chat" },
-  { name: "Stats", path: "/statistics", icon: "incomplete_circle" },
-  { name: "News", path: "/news", icon: "newspaper"}
+  { name: "Dashboard",    path: "/app/dashboard",    icon: "home" },
+  { name: "Search Job",   path: "/app/search",       icon: "search" },
+  { name: "Applications", path: "/app/applications", icon: "description" },
+  // { name: "Message",      path: "/app/messages",     icon: "chat" },
+  { name: "Statistics",   path: "/app/statistics",   icon: "incomplete_circle" },
+  { name: "News",         path: "/app/news",         icon: "newspaper" },
 ];
 
 const isActive = (path) => {

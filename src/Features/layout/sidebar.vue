@@ -16,6 +16,7 @@ const menuItems = [
   // { name: "Message",      path: "/app/messages",     icon: "chat" },
   { name: "Statistics",   path: "/app/statistics",   icon: "incomplete_circle" },
   { name: "News",         path: "/app/news",         icon: "newspaper" },
+  
 ];
 
 const currentPageName = computed(() => {
@@ -49,12 +50,12 @@ const Logout = () => {
     :class="uiStore.isSidebarOpen ? 'w-[260px]' : 'w-20'"
   >
     <!-- Decorative corner piece -->
-    <div
+    <!-- <div
       class="absolute -top-14 w-20 h-20 bg-[#4B2AAD] -right-3 transition-all duration-300"
       :class="sideMargin"
     >
       <div class="absolute -bottom-8 -right-5 w-16 h-14 bg-gray-100 rounded-full"></div>
-    </div>
+    </div> -->
 
     <!-- Logo -->
     <div
