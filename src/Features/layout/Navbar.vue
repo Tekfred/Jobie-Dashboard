@@ -57,7 +57,7 @@ const toggle = () => {
 </script>
 <template>
   <nav
-    class="flex items-center justify-between border-b border-gray-100 w-full py-1"
+    class="flex items-center justify-between border-gray-100 w-full py-2"
   >
     <!-- Left: hamburger + page title -->
     <div

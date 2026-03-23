@@ -27,7 +27,7 @@ const uiStore = useUiStore();
     <!-- Content area: flex-1 = always fills ALL remaining screen width -->
     <div class="flex-1 flex flex-col min-w-0 transition-all duration-300">
       <!-- Navbar — stretches full width of this content column -->
-      <section class="bg-[#f1f1f1] px-4 sm:px-2 static top-0">
+      <section class="bg-[#f1f1f1] px-4 flex gap-10 sm:px-2 fixed top-0 z-0">
         <Navbar />
       </section>
 
