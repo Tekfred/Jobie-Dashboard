@@ -36,39 +36,39 @@ const getStrokeDashoffset = (percentage) =>
        
 
         <!-- Title Row -->
-        <div class="flex items-center justify-between">
-          <h2 class="text-xl font-bold text-gray-800">Edit Profile</h2>
+        <div class="flex items-center justify-between space-x-15 sm:space-x-auto">
+          <h2 class="sm:text-xl font-bold text-gray-800 text-sm"><span class=" sm:inline-block hidden">Edit</span> Profile</h2>
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-500">Available for hire?</span>
+              <span class="text-xs sm:text-sm md:text-base text-gray-500">Available for hire?</span>
               <!-- Toggle -->
               <label class="relative inline-flex  items-center cursor-pointer">
                 <input type="checkbox" checked class="sr-only peer" />
                  <button
           @click="showInterviews = !showInterviews"
           :class="showInterviews ? 'bg-[#e5cffd]' : 'bg-gray-200'"
-          class="w-8 xh-4 sm:w-10 sm:h-3 rounded-full relative transition-colors"
+          class="w-8 h-4 sm:w-10 sm:h-3 rounded-full relative transition-colors"
         >
           <div
             :class="
               showInterviews
-                ? 'translate-x-4 sm:translate-x-5'
-                : 'translate-x-1'
+                ? 'translate-x-4 sm:translate-x-4'
+                : '-translate-x-1'
             "
-            class="w-2.5 h-2.5 sm:w-4.5 sm:h-4.5 bg-[#7252D3] rounded-full transition-transform -mt-0.5 ml-px"
+            class="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 bg-[#7252D3] rounded-full transition-transform mt-0.5 ml-px"
           ></div>
         </button>
               </label>
             </div>
             <button
-              class="px-5 py-2 rounded-full border border-gray-200 text-gray-600 text-sm font-medium hover:bg-gray-50 transition"
+              class="px-5 py-2 rounded-full border border-gray-200 text-gray-600 text-xs sm:text-base font-medium hover:bg-gray-50 transition"
             >
               Cancel
             </button>
             <button
-              class="px-6 py-2 rounded-full bg-[#6C5DD3] text-white text-sm font-semibold hover:bg-[#5a4cc4] transition shadow-md shadow-[#6C5DD3]/30"
+              class="px-6 py-2 rounded-full bg-[#6C5DD3] text-white text-xs md:text-base font-semibold hover:bg-[#5a4cc4] transition shadow-md shadow-[#6C5DD3]/30"
             >
-              Save Changes
+             Save <span class="hidden md:text-base">Changes</span> 
             </button>
           </div>
         </div>
@@ -77,7 +77,7 @@ const getStrokeDashoffset = (percentage) =>
       <!-- GENERALS -->
       <div class=" p-6 text-start font-semibold">
         <h3 class="text-xs font-bold tracking-widest text-black uppercase mb-5">Generals</h3>
-        <div class="grid grid-cols-3 gap-5 mb-5">
+        <div class="grid grid-cols-1 gap-5 mb-5 lg:grid-cols-3">
           <div>
             <label class="block text-xs text-gray-400 mb-1">First Name</label>
             <input
@@ -105,7 +105,7 @@ const getStrokeDashoffset = (percentage) =>
             />
           </div>
         </div>
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
           <div>
             <label class="block text-xs text-gray-400 mb-1">Username</label>
             <input
@@ -142,7 +142,7 @@ const getStrokeDashoffset = (percentage) =>
       <!-- CONTACT -->
       <div class=" p-6 text-start">
         <h3 class="text-xs font-bold tracking-widest text-black uppercase mb-5">Contact</h3>
-        <div class="grid grid-cols-3 gap-5 mb-5">
+        <div class="grid grid-cols-1 gap-5 mb-5 lg:grid-cols-3">
           <div>
             <label class="block text-xs text-gray-400 mb-1 font-semibold">MobilePhone</label>
             <div class="flex items-center gap-2 border-b border-gray-200 focus-within:border-[#6C5DD3] py-1.5 transition-colors">
@@ -174,7 +174,7 @@ const getStrokeDashoffset = (percentage) =>
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
           <div>
             <label class="block text-xs text-gray-400 mb-1">Address</label>
             <input type="text" value="Franklin Avenue St. Corner"
@@ -187,6 +187,7 @@ const getStrokeDashoffset = (percentage) =>
                 <option>London</option>
                 <option>New York</option>
                 <option>Paris</option>
+                <option>Santorini</option>
               </select>
               <svg class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
@@ -225,7 +226,7 @@ const getStrokeDashoffset = (percentage) =>
           <h3 class="text-xs font-bold tracking-widest text-gray-500 uppercase">Skills</h3>
           <button class="text-sm font-semibold text-[#6C5DD3] hover:text-[#5a4cc4] transition">+ Add New Skills</button>
         </div>
-        <div class="grid grid-cols-2 gap-x-8 gap-y-5">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-5 lg:grid-cols-3">
           <div v-for="skill in skillBars" :key="skill.name">
             <div class="flex items-center justify-between mb-1.5">
               <span class="text-xs font-semibold text-[#6C5DD3]">{{ skill.percentage }}%</span>

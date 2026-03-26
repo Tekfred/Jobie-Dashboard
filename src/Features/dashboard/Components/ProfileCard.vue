@@ -40,8 +40,8 @@ const getStrokeDashoffset = (percentage) => {
       </div>
 
       <!-- Name and Title -->
-      <h3 class="text-xl font-bold text-gray-800">{{ profile.name }}</h3>
-      <p class="text-sm text-gray-500 mt-1">{{ profile.title }}</p>
+      <h3 class="text-sm sm:text-xl font-bold text-gray-800">{{ profile.name }}</h3>
+      <p class="text-xs sm:text-sm text-gray-500 mt-1">{{ profile.title }}</p>
     </div>
 
     <!-- Skills Section -->

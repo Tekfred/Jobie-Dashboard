@@ -1,5 +1,52 @@
+
 <script setup>
+import { ref, computed } from 'vue'
+
+const showDetails = ref(false)
+
+const W = 700
+const H = 130
+const PAD_TOP = 8
+const PAD_BTM = 18
+const chartH = H - PAD_TOP - PAD_BTM
+
+const viewPts = [55,60,72,68,80,74,85,78,65,70,62,75,58]
+const hirePts = [12,18,15,22,20,25,18,30,22,26,20,28,24]
+const gridYs  = [20, 50, 80, 108]
+
+const xLabels = computed(() =>
+  Array.from({ length: 13 }, (_, i) => ({
+    label: String(i + 1).padStart(2, '0'),
+    pos: (i / 12) * (W - 40) + 20,
+  }))
+)
+
+function pts2coords(pts) {
+  return pts.map((v, i) => {
+    const x = (i / (pts.length - 1)) * (W - 40) + 20
+    const y = PAD_TOP + (1 - v / 100) * chartH
+    return [x, y]
+  })
+}
+
+function smoothPath(coords) {
+  return coords.map(([x, y], i) => (i === 0 ? `M${x},${y}` : `L${x},${y}`)).join(' ')
+}
+
+function areaPath(coords) {
+  const line = smoothPath(coords)
+  const last = coords[coords.length - 1]
+  const first = coords[0]
+  return `${line} L${last[0]},${H - PAD_BTM} L${first[0]},${H - PAD_BTM} Z`
+}
+
+const viewLine = computed(() => smoothPath(pts2coords(viewPts)))
+const hireLine = computed(() => smoothPath(pts2coords(hirePts)))
+const viewArea = computed(() => areaPath(pts2coords(viewPts)))
+const hireArea = computed(() => areaPath(pts2coords(hirePts)))
 </script>
+
+
 
 <template>
   <div class="card anim-2">
@@ -83,54 +130,9 @@
   </div>
 </template>
 
-<script setup>
-import { ref, computed } from 'vue'
-
-const showDetails = ref(false)
-
-const W = 700
-const H = 130
-const PAD_TOP = 8
-const PAD_BTM = 18
-const chartH = H - PAD_TOP - PAD_BTM
-
-const viewPts = [55,60,72,68,80,74,85,78,65,70,62,75,58]
-const hirePts = [12,18,15,22,20,25,18,30,22,26,20,28,24]
-const gridYs  = [20, 50, 80, 108]
-
-const xLabels = computed(() =>
-  Array.from({ length: 13 }, (_, i) => ({
-    label: String(i + 1).padStart(2, '0'),
-    pos: (i / 12) * (W - 40) + 20,
-  }))
-)
-
-function pts2coords(pts) {
-  return pts.map((v, i) => {
-    const x = (i / (pts.length - 1)) * (W - 40) + 20
-    const y = PAD_TOP + (1 - v / 100) * chartH
-    return [x, y]
-  })
-}
-
-function smoothPath(coords) {
-  return coords.map(([x, y], i) => (i === 0 ? `M${x},${y}` : `L${x},${y}`)).join(' ')
-}
-
-function areaPath(coords) {
-  const line = smoothPath(coords)
-  const last = coords[coords.length - 1]
-  const first = coords[0]
-  return `${line} L${last[0]},${H - PAD_BTM} L${first[0]},${H - PAD_BTM} Z`
-}
-
-const viewLine = computed(() => smoothPath(pts2coords(viewPts)))
-const hireLine = computed(() => smoothPath(pts2coords(hirePts)))
-const viewArea = computed(() => areaPath(pts2coords(viewPts)))
-const hireArea = computed(() => areaPath(pts2coords(hirePts)))
-</script>
-
 <style scoped>
+
+
 .card {
   background: var(--color-surface);
   border-radius: var(--radius-card);

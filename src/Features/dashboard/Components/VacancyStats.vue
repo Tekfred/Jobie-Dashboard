@@ -142,11 +142,11 @@ const chartOptions = {
 <template>
   <main class="w-full">
     <div class="flex items-center justify-between">
-      <h2 class="text-xl font-bold text-gray-800">Vacancy Stats</h2>
+      <h2 class="text-sm sm:text-xl font-bold text-gray-800">Vacancy Stats</h2>
       
       <div class="flex items-center gap-6">
         <div class="flex items-center gap-2">
-          <span class="text-sm font-medium text-gray-500">Application Sent</span>
+          <span class="hidden sm:block sm:text-sm font-medium text-gray-500">Application Sent</span>
           <button 
             @click="showApplications = !showApplications"
             :class="showApplications ? 'bg-[#7252D3]' : 'bg-gray-200'"
@@ -157,7 +157,7 @@ const chartOptions = {
         </div>
 
         <div class="flex items-center gap-2">
-          <span class="text-sm font-medium text-gray-500">Interviews</span>
+          <span class="hidden sm:block sm:text-sm font-medium text-gray-500">Interviews</span>
           <button 
             @click="showInterviews = !showInterviews"
             :class="showInterviews ? 'bg-[#7252D3]' : 'bg-gray-200'"
@@ -168,7 +168,7 @@ const chartOptions = {
         </div>
 
         <div class="flex items-center gap-2">
-          <span class="text-sm font-medium text-gray-500">Rejected</span>
+          <span class="hidden sm:block sm:text-sm font-medium text-gray-500">Rejected</span>
           <button 
             @click="showRejected = !showRejected"
             :class="showRejected ? 'bg-[#7252D3]' : 'bg-gray-200'"
@@ -178,7 +178,7 @@ const chartOptions = {
           </button>
         </div>
 
-        <button class="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-full text-sm font-medium">
+        <button class="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-full text-xs sm:text-sm font-medium">
           This Month <ChevronDown class="w-4 h-4" />
         </button>
       </div>
@@ -188,19 +188,8 @@ const chartOptions = {
       <Line :data="chartData" :options="chartOptions" :plugins="[verticalLinePlugin]" />
     </div>
 
-    <div class="flex justify-center gap-8 mt-6">
-      <div class="flex items-center gap-2">
-        <div class="w-3 h-3 rounded-full bg-[#7252D3]"></div>
-        <span class="text-sm text-gray-600">Application Sent</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-3 h-3 rounded-full bg-[#00D084]"></div>
-        <span class="text-sm text-gray-600">Interviews</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <div class="w-3 h-3 rounded-full bg-[#FF5B5B]"></div>
-        <span class="text-sm text-gray-600">Rejected</span>
-      </div>
-    </div>
+
+   
+
   </main>
 </template>

@@ -89,7 +89,7 @@ const profile = ref({
     -->
         <div class="mb-6">
           <h3
-            class="text-base sm:text-lg xl:text-xl font-bold text-gray-800 mb-6 sm:mb-11"
+            class="text-base sm:text-lg xl:text-xl font-bold text-gray-800 mb-12 sm:mb-11"
           >
             Recommended Jobs
           </h3>

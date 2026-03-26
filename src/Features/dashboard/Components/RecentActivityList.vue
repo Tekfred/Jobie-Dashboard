@@ -53,7 +53,7 @@ const showLoadMore = ref(true);
 <template>
   <div class="bg-white rounded-2xl ">
     <!-- Section Header -->
-    <h3 class="text-lg font-bold text-gray-800 mb-6">Recent Activities</h3>
+    <h3 class="text-md sm:text-lg font-bold text-gray-800  mb-6">Recent Activities</h3>
 
     <!-- Activities List -->
     <div class="space-y-10">
@@ -77,7 +77,7 @@ const showLoadMore = ref(true);
 
         <!-- Activity Content -->
         <div class="flex-2 ">
-          <p class="text-sm text-gray-600">
+          <p class="text-sm sm:text-sm text-gray-600">
             {{ activity.message }}
             <span class="font-semibold text-gray-800">{{ activity.highlight }}</span>
           </p>
@@ -97,7 +97,7 @@ const showLoadMore = ref(true);
         class="flex justify-center transform translate-y-12"
       >
         <button 
-          class="flex items-center justify-center w-15 h-15 rounded-full shadow-2xl bg-gray-100 hover:bg-gray-200 transition-colors"
+          class="flex items-center justify-center w-12 h-12  sm:w-15 sm:h-15 rounded-full shadow-2xl bg-gray-100 hover:bg-gray-200 transition-colors"
           @click="() => {}"
         >
           <span class="material-symbols-outlined text-white-600 group-hover:text-gray-800 ">

@@ -46,7 +46,7 @@ const portfolios = [
   <template>
 
     <!-- RIGHT: Profile Card -->
-    <div v-if="profile" class="pt-18 w-85 flex flex-col gap-5 shrink-0">
+    <div v-if="profile" class="pt-18 w-85 flex flex-col -space-x-15 sm:space-x-0 gap-5 shrink-0">
 
       <!-- Profile Info Card -->
       <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center">

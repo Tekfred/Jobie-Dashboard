@@ -3,9 +3,12 @@ import { ref, computed } from "vue";
 import Freddy from "@/assets/images/profile_img_1.png";
 import { useRoute } from "vue-router";
 import { useUiStore } from "../../stores/uiStore";
+import { useThemeStore } from '@/stores/themeStore'
+import logoImg from "@/assets/images/vz.png";
 
 const route = useRoute();
 const uiStore = useUiStore();
+const themeStore = useThemeStore();
 
 const isActive = ref(false);
 const isBellOpen = ref(false);
@@ -14,7 +17,7 @@ const notification = ref(18);
 
 // Menu items mirrored from sidebar to resolve the current page name
 const menuItems = [
-  { name: "Dashboard", path: "/app/home" },
+  { name: "Dashboard", path: "/app/home"},
   { name: "Search Job", path: "/app/search" },
   { name: "Applications", path: "/app/applications" },
   // { name: "Message", path: "/messages" },
@@ -57,7 +60,7 @@ const toggle = () => {
 </script>
 <template>
   <nav
-    class="flex items-center justify-between border-gray-100 w-full py-2"
+    class="flex items-center justify-between border-gray-100 w-full py-4 "
   >
     <!-- Left: hamburger + page title -->
     <div
@@ -77,8 +80,10 @@ const toggle = () => {
 
       <!-- Page Title — shrinks on smaller screens -->
       <h1
-        class="font-poppins font-bold text-gray-800 relative text-base sm:text-lg md:text-xl lg:text-2xl transition-all duration-300"
+        class="font-poppins font-bold text-gray-800 relative flex flex-row items-center sm:flex text-base sm:text-lg md:text-xl lg:text-2xl transition-all duration-300"
       >
+      
+        <img :src="logoImg" alt="logo" class="w-8 h-12 rounded-xl flex sm:hidden md:hidden items-center justify-center shrink-0"/>
         {{ currentPageName }}
       </h1>
     </div>
@@ -191,6 +196,13 @@ const toggle = () => {
         </div> -->
       </div>
 
+      <button
+        class="toggle w-[40px] h-[22px] bg-[#D0D4E8] border-none rounded-full relative cursor-pointer transition-colors duration-200 shrink-0"
+         :class="{ 'toggle--on': themeStore.isDark }"
+        @click="themeStore.toggleTheme()"
+        aria-label="Toggle dark mode"
+      />
+
       <!-- Profile -->
       <div class="flex items-center pl-2 md:pl-4 border-l border-gray-100">
         <RouterLink to="/app/profile">
@@ -211,3 +223,20 @@ const toggle = () => {
     </div>
   </nav>
 </template>
+
+<style scoped>
+
+
+.toggle::after {
+  content: '';
+  width: 16px; height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px; left: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+.toggle--on { background: black; }
+.toggle--on::after { transform: translateX(18px); }
+</style>
